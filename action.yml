@@ -1,0 +1,19 @@
+name: 'Create .Env'
+description: 'Create an .env file from Environment Variables.'
+inputs:
+    template:
+        description: 'The template file to make the .env from.'
+        required: true
+    save_as:
+        description: 'Full path to the .env to save.'
+        required: false
+        default: './.env'
+outputs:
+    status:
+        description: 'Was the action successful or not?'
+runs:
+    using: 'docker'
+    image: 'Dockerfile'
+    args:
+        - ${{ inputs.template }}
+        - ${{ inputs.save_as }}
