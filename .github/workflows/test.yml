@@ -1,0 +1,25 @@
+name: Test Action
+
+on:
+    push:
+        branches:
+            - test-action
+
+jobs:
+    build:
+        name: Test action
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Create .env
+              uses: ssgglobal/create-env-action@v0.1.0
+              with:
+                MY_ENV_VAR: 'fooBarBat'
+                template: './.env.example'
+                save_as: '.env'
+
+            - name: did it work
+              run: cat ./.env
