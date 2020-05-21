@@ -16,8 +16,9 @@ jobs:
 
             - name: Create .env
               uses: ssgglobal/create-env-action@v0.1.0
-              with:
+              env:
                 MY_ENV_VAR: 'fooBarBat'
+              with:
                 template: './.env.example'
                 save_as: '.env'
 
