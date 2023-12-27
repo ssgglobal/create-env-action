@@ -20,4 +20,4 @@ fi
 
 cat $OUTPUT
 
-echo "::set-output name=status::$STATUS"
+echo "status=$STATUS" >> $GITHUB_OUTPUT
